@@ -1,0 +1,12 @@
+{
+  "repository": "https://github.com/zqhang/AnomalyCLIP",
+  "revision": "3911738c0867544f545a076ad78f3f11d9ecbfdf",
+  "file": "AnomalyCLIP_lib/AnomalyCLIP.py",
+  "original_sha256": "7046163f10d9d8f1f5fa1c8efc01af72ba3ee712c1629c58c54511bfa138cc01",
+  "original_git_blob": "8a359d961eb8eb497ff25e1b77fa0b5659b7bb88",
+  "local_modifications": [
+    "remove unused thop dependency",
+    "remove diagnostic print",
+    "CPU-compatible deep-prompt dtype/device"
+  ]
+}

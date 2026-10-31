@@ -1,0 +1,26 @@
+# Initial CPU integration profile; no clinical sensitivity claim.
+app:
+  mode: models
+models:
+  reasoner: medgemma
+  medgemma_id: google/medgemma-1.5-4b-it
+  dtype: bfloat16
+  device: cpu
+  cpu_memory_gib: 10
+  cpu_threads: 6
+  max_new_tokens: 768
+  structured_reports: true
+  generation_timeout_seconds: 3600
+  local_files_only: true
+  triage_backend: chestxray
+  detector_weights: densenet121-res224-all
+  detector_cache: weights/torchxrayvision
+  default_region: chest
+  triage_threshold: 0.33
+  segmentation_enabled: false
+rag:
+  enabled: false
+agent:
+  request_timeout_seconds: 5400
+  stream_idle_timeout_seconds: 3600
+  max_concurrent_runs: 1

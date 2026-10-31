@@ -1,0 +1,84 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="2PyGa7yyMdCuqOX-kpou">
+    <mxGraphModel dx="3193" dy="775" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="nfl9Rv1q9GHo4ttsvzps-4" edge="1" parent="1" source="nfl9Rv1q9GHo4ttsvzps-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;defaultLabelBackgroundColor=page;" target="nfl9Rv1q9GHo4ttsvzps-3" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tu2-Tb6y-SJnh2WFT3wc-13" edge="1" parent="1" source="nfl9Rv1q9GHo4ttsvzps-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;" target="tu2-Tb6y-SJnh2WFT3wc-12">
+          <mxGeometry relative="1" x="0.0011" as="geometry">
+            <Array as="points">
+              <mxPoint x="-1615" y="420" />
+              <mxPoint x="-950" y="420" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nfl9Rv1q9GHo4ttsvzps-1" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;" value="&lt;br&gt;input image + prompt&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="120" x="-1675" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="nfl9Rv1q9GHo4ttsvzps-2" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;" value="anomaly detector&lt;div&gt;or segmentation&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="120" x="-1390" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="tu2-Tb6y-SJnh2WFT3wc-7" edge="1" parent="1" source="nfl9Rv1q9GHo4ttsvzps-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;" target="nfl9Rv1q9GHo4ttsvzps-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tu2-Tb6y-SJnh2WFT3wc-8" edge="1" parent="1" source="nfl9Rv1q9GHo4ttsvzps-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;" target="tu2-Tb6y-SJnh2WFT3wc-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nfl9Rv1q9GHo4ttsvzps-3" parent="1" style="shape=singleArrow;whiteSpace=wrap;html=1;arrowWidth=0.4;arrowSize=0.4;" value="image" vertex="1">
+          <mxGeometry height="60" width="80" x="-1515" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="tu2-Tb6y-SJnh2WFT3wc-14" edge="1" parent="1" source="tu2-Tb6y-SJnh2WFT3wc-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;" target="tu2-Tb6y-SJnh2WFT3wc-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tu2-Tb6y-SJnh2WFT3wc-2" parent="1" style="html=1;shadow=0;dashed=0;align=center;verticalAlign=middle;shape=mxgraph.arrows2.arrow;dy=0.6;dx=40;notch=0;" value="heat or segment map&amp;nbsp;&lt;div&gt;oer image&lt;/div&gt;" vertex="1">
+          <mxGeometry height="127.5" width="130" x="-1240" y="132.5" as="geometry" />
+        </mxCell>
+        <mxCell id="tu2-Tb6y-SJnh2WFT3wc-10" edge="1" parent="1" source="tu2-Tb6y-SJnh2WFT3wc-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;defaultLabelBackgroundColor=page;" target="tu2-Tb6y-SJnh2WFT3wc-9" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tu2-Tb6y-SJnh2WFT3wc-3" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;" value="medseglip&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="120" x="-1395" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="tu2-Tb6y-SJnh2WFT3wc-6" edge="1" parent="1" source="nfl9Rv1q9GHo4ttsvzps-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;defaultLabelBackgroundColor=page;" target="tu2-Tb6y-SJnh2WFT3wc-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tu2-Tb6y-SJnh2WFT3wc-15" edge="1" parent="1" source="tu2-Tb6y-SJnh2WFT3wc-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;" target="tu2-Tb6y-SJnh2WFT3wc-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tu2-Tb6y-SJnh2WFT3wc-9" parent="1" style="shape=singleArrow;whiteSpace=wrap;html=1;arrowWidth=0.4;arrowSize=0.4;" value="top_k=5" vertex="1">
+          <mxGeometry height="70" width="90" x="-1240" y="305" as="geometry" />
+        </mxCell>
+        <mxCell id="tu2-Tb6y-SJnh2WFT3wc-20" edge="1" parent="1" source="tu2-Tb6y-SJnh2WFT3wc-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;" target="tu2-Tb6y-SJnh2WFT3wc-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tu2-Tb6y-SJnh2WFT3wc-11" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;" value="agent&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="120" x="-870" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="tu2-Tb6y-SJnh2WFT3wc-16" edge="1" parent="1" source="tu2-Tb6y-SJnh2WFT3wc-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;" target="tu2-Tb6y-SJnh2WFT3wc-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tu2-Tb6y-SJnh2WFT3wc-12" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;" value="master&amp;nbsp;&lt;div&gt;prompt&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="80" x="-1000" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="tu2-Tb6y-SJnh2WFT3wc-17" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="PDF diagnosis report" vertex="1">
+          <mxGeometry height="60" width="120" x="-700" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="tu2-Tb6y-SJnh2WFT3wc-19" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;" value="diagnosis" vertex="1">
+          <mxGeometry height="80" width="120" x="-700" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="tu2-Tb6y-SJnh2WFT3wc-22" edge="1" parent="1" source="tu2-Tb6y-SJnh2WFT3wc-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;" target="tu2-Tb6y-SJnh2WFT3wc-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tu2-Tb6y-SJnh2WFT3wc-23" edge="1" parent="1" source="tu2-Tb6y-SJnh2WFT3wc-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;" target="tu2-Tb6y-SJnh2WFT3wc-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tu2-Tb6y-SJnh2WFT3wc-21" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;" value="pdf maker tool&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="100" x="-860" y="90" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

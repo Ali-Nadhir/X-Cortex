@@ -1,0 +1,63 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "xcortex"
+version = "0.1.0"
+description = "Single-pass radiograph reasoning with retrieval and auxiliary visual context."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Ali Nadhir" }]
+dependencies = [
+    "fastapi>=0.110",
+    "uvicorn>=0.29",
+    "pydantic>=2.6",
+    "langgraph>=1.2.18,<2",
+    "PyYAML>=6.0",
+    "numpy>=1.26",
+    "Pillow>=10.0",
+    "python-multipart>=0.0.9",
+    "httpx>=0.27",
+    "pydicom>=2.4",
+    "psutil>=5.9",
+]
+
+[project.optional-dependencies]
+models = [
+    "torch>=2.2",
+    "torchvision>=0.17",
+    "transformers>=4.51",
+    "sentencepiece>=0.2",
+    "lm-format-enforcer>=0.11.3,<0.12",
+    "accelerate>=0.30",
+    "safetensors>=0.8",
+    "huggingface-hub>=0.34",
+    "torchxrayvision>=1.3,<2",
+    "scikit-image>=0.22",
+    "scipy>=1.10",
+    "chromadb>=0.5",
+    "sam-2 @ git+https://github.com/facebookresearch/sam2.git",
+]
+desktop = ["pywebview>=5.0"]
+dev = ["pytest>=8.0", "pyright>=1.1.414,<2"]
+
+[project.scripts]
+xcortex = "xcortex.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/xcortex"]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.pyright]
+include = ["src/xcortex"]
+# Preserved third-party architecture; our typed loader/adapter are checked.
+ignore = ["src/xcortex/models/anomalyclip/_upstream.py"]
+pythonVersion = "3.11"
+typeCheckingMode = "basic"

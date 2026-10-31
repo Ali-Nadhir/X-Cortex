@@ -1,0 +1,53 @@
+app:
+  host: 127.0.0.1
+  port: 8417
+  mode: models
+
+models:
+  reasoner: medgemma
+  medgemma_id: google/medgemma-1.5-4b-it
+  dtype: bfloat16
+  device: auto
+  siglip_id: google/medsiglip-448
+  sam2_variant: sam2.1_hiera_large
+  sam2_checkpoint: data/models/sam2.1_hiera_large.pt
+  triage_backend: anomalyclip
+  triage_checkpoint: data/models/mobilenetv3_mura.pth
+  triage_threshold: 0.33
+  detector_weights: densenet121-res224-all
+  detector_cache: weights/torchxrayvision
+  segmentation_enabled: false
+  max_new_tokens: 768
+  generation_timeout_seconds: 1200
+  cpu_memory_gib: 10
+  cpu_threads: 6
+  local_files_only: true
+  default_region: chest
+
+api:
+  base_url: https://api.deepseek.com
+  api_key_env: DEEPSEEK_API_KEY
+  api_model: deepseek-chat
+  vision_enabled: false
+  timeout_seconds: 180
+
+paths:
+  data: data
+  weights: weights
+  db: data/db
+  artifacts: data/artifacts
+  state: data/state/sessions.json
+
+rag:
+  collection: chestagentbench_references
+  top_k: 5
+  experimental: true
+  enabled: true
+  attach_reference_images: true
+  max_reference_images: 5
+
+agent:
+  max_attempts: 1
+  request_timeout_seconds: 1800
+  stream_idle_timeout_seconds: 1200
+  max_concurrent_runs: 1

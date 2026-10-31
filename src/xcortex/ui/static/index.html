@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="color-scheme" content="dark"/>
+<title>X-Cortex — X-ray Agent</title>
+<link rel="icon" href="/static/assets/logo.png"/>
+<link rel="stylesheet" href="/static/fonts.css"/>
+<link rel="stylesheet" href="/static/styles.css"/>
+</head>
+<body>
+<div class="app" id="app">
+  <nav class="rail" id="rail" aria-label="Main navigation">
+    <button class="brand" id="homeBtn" aria-label="X-Cortex — new study"><img src="/static/assets/logo.png" alt="" width="86" height="86"/></button>
+    <div class="rail-nav">
+      <button class="nav-btn" data-panel="chats" aria-label="Chats" title="Chats" aria-expanded="false" aria-controls="chatsPanel"><img src="/static/assets/nav-chat.svg" alt="" width="58" height="58"/></button>
+      <button class="nav-btn" data-panel="arrange" aria-label="Arrange chats" title="Arrange chats" aria-expanded="false" aria-controls="arrangePanel"><img src="/static/assets/nav-arrange.png" alt="" width="58" height="58"/></button>
+      <button class="nav-btn" data-panel="files" aria-label="Case files and context" title="Case files and context" aria-expanded="false" aria-controls="filesPanel"><img src="/static/assets/nav-files.png" alt="" width="58" height="58"/></button>
+      <button class="nav-btn" data-panel="models" aria-label="Models and tools" title="Models and tools" aria-expanded="false" aria-controls="modelsPanel"><img src="/static/assets/nav-models.svg" alt="" width="58" height="58"/></button>
+    </div>
+    <button class="nav-btn settings-nav" data-panel="settings" aria-label="Settings" title="Settings" aria-expanded="false" aria-controls="settingsPanel"><img src="/static/assets/nav-settings.svg" alt="" width="58" height="58"/></button>
+  </nav>
+  <div class="scrim" id="scrim"></div>
+  <aside class="popout" id="chatsPanel" aria-labelledby="chatsHeading" hidden>
+    <span class="eyebrow">01 / MEMORY</span><h2 id="chatsHeading">Chats</h2>
+    <label class="search-row"><span>Search cases</span><input id="sessionSearch" type="search" placeholder="TYPE TO FILTER" autocomplete="off"/></label>
+    <div class="sessions" id="sessionsList" aria-label="Analysis history"></div>
+    <button class="menu-row" id="newAnalysis"><span>+ New chat</span><small>START A NEW CASE</small></button>
+  </aside>
+  <aside class="popout" id="arrangePanel" aria-labelledby="arrangeHeading" hidden>
+    <span class="eyebrow">02 / ORGANIZE</span><h2 id="arrangeHeading">Arrange Chats</h2>
+    <span class="eyebrow">SORT</span>
+    <div class="choice-row"><button data-sort="recent" aria-pressed="true">Recent</button><button data-sort="oldest" aria-pressed="false">Oldest</button></div>
+    <span class="eyebrow">GROUP BY</span>
+    <div class="choice-row"><button data-group="region" aria-pressed="false">Body part</button><button data-group="status" aria-pressed="false">Status</button></div>
+    <button class="menu-row" id="pinnedFirst" aria-pressed="false"><span>Pinned first</span><small>Keep marked cases on top</small></button>
+    <button class="menu-row" id="hideCompleted" aria-pressed="false"><span>Completed hidden</span><small>Hide finished cases</small></button>
+    <button class="menu-row" id="resetArrangement"><span>Reset arrangement</span><small>Return to default order</small></button>
+  </aside>
+  <aside class="popout" id="filesPanel" aria-labelledby="filesHeading" hidden>
+    <span class="eyebrow">03 / CURRENT CASE</span><h2 id="filesHeading">Case Files / Context</h2>
+    <div id="contextFiles" class="panel-list"></div><div class="context-summary" id="contextSummary">Attach a radiograph to begin.</div>
+  </aside>
+  <aside class="popout" id="modelsPanel" aria-labelledby="modelsHeading" hidden>
+    <span class="eyebrow">04 / AGENT ACCESS</span><h2 id="modelsHeading">Models / Tools</h2>
+    <span class="eyebrow">MODEL ROUTING</span><div id="modelInfo" class="panel-list"></div>
+    <span class="eyebrow">TOOLS</span><div id="toolsInfo" class="panel-list"></div>
+  </aside>
+  <aside class="popout" id="settingsPanel" aria-labelledby="settingsHeading" hidden>
+    <span class="eyebrow">05 / PREFERENCES</span><h2 id="settingsHeading">Settings</h2>
+    <details class="menu-row"><summary>Privacy &amp; retention</summary><small>Session / memory controls</small><p>Studies and reports are saved by your X-Cortex server. Interface preferences are stored in this browser. Model data handling depends on your configured backend.</p></details>
+    <button class="menu-row" id="reportDetail" aria-pressed="false"><span>Report detail</span><small>Detailed output</small></button>
+    <button class="menu-row" id="densityToggle" aria-pressed="false"><span>Interface density</span><small>Comfortable</small></button>
+    <button class="menu-row" id="notificationsToggle" aria-pressed="true"><span>Notifications</span><small>Completion alerts on</small></button>
+    <details class="menu-row"><summary>About X Cortex</summary><small>Version / repository info</small><p>X-Cortex v0.1.0<br/>Agentic radiographic review.<br/><span id="modeBadge">Connecting…</span></p></details>
+  </aside>
+  <main class="main">
+    <header class="appbar"><div class="wordmark"><span>X-CORTEX</span><small>X-RAY AGENT</small></div><div class="appbar-status" role="status"><span class="led" id="sysLed"></span><span id="sysStatus">CONNECTING</span></div></header>
+    <div class="workspace">
+      <section class="intro" aria-labelledby="screenTitle">
+        <div class="kicker"><span class="bone" aria-hidden="true"></span><span id="screenKicker">FIRST CONTACT / STUDY INTAKE</span></div>
+        <h1 id="screenTitle">Bring the image. Bring the context.</h1>
+        <p id="screenDescription">The X-ray is the starting point. The surrounding clinical information is what makes the interpretation useful.</p>
+      </section>
+      <div class="conversation-area">
+        <section class="thread" id="thread" aria-label="Study conversation" aria-busy="false">
+          <div class="empty" id="emptyState">
+            <img class="welcome-mascot" src="/static/assets/cowboy.svg" alt="The X-Cortex skeleton guide in a cowboy hat" width="375" height="376"/>
+            <div class="welcome-bubble">
+              <h2>Give me the X-ray — then give me the story around it.</h2>
+              <p>Upload your X-ray and provide every relevant detail you have: age and sex, symptoms and when they started, the body part and side imaged, why the X-ray was ordered, medical and surgical history, medications, previous diagnoses, earlier X-rays or scans, radiology reports, laboratory results, and any other records connected to the problem. Then tell me the exact clinical question you want answered. The more complete the context, the better the analysis.</p>
+              <div class="bubble-signature"><span class="bone double" aria-hidden="true"></span><span>X-RAY + RECORDS + CLINICAL QUESTION</span></div>
+            </div>
+          </div>
+        </section>
+        <img class="chat-mascot" src="/static/assets/cowboy.svg" alt="" width="255" height="256" hidden/>
+      </div>
+      <footer class="composer-zone">
+        <div class="attachment" id="attachmentChip" hidden><span id="attachmentName"></span><button id="attachmentRemove" aria-label="Remove attachments">×</button></div>
+        <div class="composer">
+          <button class="upload-btn" id="attachBtn"><span class="bone" aria-hidden="true"></span><span class="upload-copy"><strong>UPLOAD X-RAY / RECORDS</strong><small>DICOM / PNG / JPG / JSON</small></span></button>
+          <textarea id="historyInput" rows="1" placeholder="Add symptoms, records, reports, prior scans, and your question…" aria-label="Clinical context or follow-up question"></textarea>
+          <button class="send-btn" id="sendBtn">START ANALYSIS</button>
+        </div>
+        <p class="composer-note">X Cortex supports radiographic review; final clinical decisions remain with qualified clinicians.</p>
+      </footer>
+    </div>
+  </main>
+</div>
+<div class="snackbar" id="snackbar" role="status"></div>
+<input type="file" id="fileInput" accept=".png,.jpg,.jpeg,.tif,.tiff,.bmp,.dcm,.dicom,.dc3,.json" multiple hidden/>
+<script src="/static/app.js"></script>
+</body>
+</html>

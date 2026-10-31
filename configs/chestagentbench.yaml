@@ -1,0 +1,36 @@
+# Initial ChestAgentBench development profile, not a frozen clinical protocol.
+# Reference index must contain separately eligible reference cases; no query answers.
+app:
+  mode: models
+models:
+  reasoner: medgemma
+  medgemma_id: google/medgemma-1.5-4b-it
+  siglip_id: google/medsiglip-448
+  dtype: bfloat16
+  device: cpu
+  cpu_memory_gib: 10
+  cpu_threads: 6
+  max_new_tokens: 768
+  structured_reports: true
+  generation_timeout_seconds: 3600
+  local_files_only: true
+  triage_backend: anomalyclip
+  anomalyclip_checkpoint: weights/anomalyclip/epoch_15.pth
+  anomalyclip_backbone: weights/anomalyclip/ViT-L-14-336px.pt
+  anomalyclip_image_size: 518
+  anomalyclip_features: [24]
+  anomalyclip_sigma: 4.0
+  anomalyclip_overlay_alpha: 0.35
+  default_region: chest
+  segmentation_enabled: false
+rag:
+  collection: chestagentbench_references
+  enabled: true
+  top_k: 5
+  attach_reference_images: true
+  max_reference_images: 5
+agent:
+  max_attempts: 1
+  request_timeout_seconds: 5400
+  stream_idle_timeout_seconds: 3600
+  max_concurrent_runs: 1
